@@ -3,6 +3,7 @@ package com.platzi.platzimarket.persistence.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -21,6 +22,15 @@ public class Compra {
     private String idCliente;
     @Column(name = "medio_pago")
     private String medioPago;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente",updatable = false,insertable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
+
+
 
     public LocalDateTime getFecha() {
         return fecha;

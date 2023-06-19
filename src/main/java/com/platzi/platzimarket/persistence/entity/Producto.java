@@ -29,6 +29,7 @@ public class Producto {
     @JoinColumn(name = "id_categoria",insertable = false,updatable = false)
     private Categoria categoria;
 
+    
     public String getNombre() {
         return nombre;
     }
@@ -83,5 +84,15 @@ public class Producto {
 
     public void setCantidadStock(Integer cantidadStock) {
         this.cantidadStock = cantidadStock;
+    }
+
+
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
